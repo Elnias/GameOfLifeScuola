@@ -33,6 +33,15 @@ class GameOfLifeTests(unittest.TestCase):
 
         self.assertFalse(World.IsCellAlive(0, 1))
 
+    def test_OneDeadCellWithExactlyThreeNeighbour_CellAlive(self):
+        World = UWorld()
+        World.AddCell(1, 0)
+        World.AddCell(1, 1)
+        World.AddCell(0, 1)
+
+        World.NextGeneration()
+
+        self.assertTrue(World.IsCellAlive(0 , 0))
 
 if __name__ == '__main__':
     os.system('cls')
